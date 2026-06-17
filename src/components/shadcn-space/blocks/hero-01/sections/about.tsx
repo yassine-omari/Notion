@@ -1,7 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
-import ButtonWithIconDemo from "@/components/shadcn-space/button/button-01";
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useRouter } from "next/navigation";
+
 
 const fadeUp = {
     hidden: { opacity: 0, y: 24 },
@@ -26,6 +30,7 @@ const values = [
 ];
 
 export default function AboutSection() {
+    const router = useRouter();
     return (
         <section className="min-h-screen bg-white py-24 scroll-mt-20">
             <div className="px-6 max-w-5xl mx-auto mb-16">
@@ -85,7 +90,14 @@ export default function AboutSection() {
                         <h3 className="text-3xl font-serif text-gray-950 mb-2">Want to join us?</h3>
                         <p className="text-gray-500 text-sm">We&apos;re always looking for people who care deeply about craft.</p>
                     </div>
-                    <ButtonWithIconDemo title="See open roles" />
+                    <Button onClick={() => router.push("/openroles")} className={cn("relative text-sm font-medium rounded-full h-10 p-1 ps-4 pe-12 group transition-all duration-500 hover:ps-12 hover:pe-4 w-fit overflow-hidden cursor-pointer")}>
+                        <span className="relative z-10 transition-all duration-500">
+                            See open roles
+                        </span>
+                        <span className="absolute right-1 w-8 h-8 bg-background text-foreground rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-36px)] group-hover:rotate-45">
+                            <ArrowUpRight size={16} />
+                        </span>
+                    </Button>
                 </div>
             </motion.div>
         </section>

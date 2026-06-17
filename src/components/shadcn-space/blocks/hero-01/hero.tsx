@@ -4,6 +4,7 @@ import { Instrument_Serif } from "next/font/google";
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
@@ -20,6 +21,7 @@ type HeroSectionProps = {
 };
 
 function HeroSection({ avatarList }: HeroSectionProps) {
+  const router = useRouter();
   return (
     <section>
       <div className="w-full h-full relative">
@@ -59,7 +61,7 @@ function HeroSection({ avatarList }: HeroSectionProps) {
                 transition={{ duration: 1, delay: 0.2, ease: "easeInOut" }}
                 className="flex items-center flex-col md:flex-row justify-center gap-8"
               >
-                <Button className="relative text-sm font-medium rounded-full h-12 p-1 ps-6 pe-14 group transition-all duration-500 hover:ps-14 hover:pe-6 w-fit overflow-hidden cursor-pointer">
+                <Button onClick={() => router.push("/login")} className="relative text-sm font-medium rounded-full h-12 p-1 ps-6 pe-14 group transition-all duration-500 hover:ps-14 hover:pe-6 w-fit overflow-hidden cursor-pointer">
                   <span className="relative z-10 transition-all duration-500">
                     Get Started
                   </span>

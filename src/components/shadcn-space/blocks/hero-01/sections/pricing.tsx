@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import ButtonWithIconDemo from "@/components/shadcn-space/button/button-01";
+import { Button } from "@/components/ui/button";
+import { ArrowUpRight } from "lucide-react";
+import { useRouter } from "next/navigation";
+
 
 const fadeUp = {
     hidden: { opacity: 0, y: 24 },
@@ -44,6 +47,7 @@ const faqs = [
 export default function PricingSection() {
     const [yearly, setYearly] = useState(true);
     const [openFaq, setOpenFaq] = useState<number | null>(null);
+    const router = useRouter();
 
     return (
         <section className="min-h-screen bg-white py-24 scroll-mt-20">
@@ -126,7 +130,14 @@ export default function PricingSection() {
                             Custom contracts, volume pricing, advanced security, and dedicated support for large organizations.
                         </p>
                     </div>
-                    <ButtonWithIconDemo title="Talk to sales" />
+                    <Button onClick={() => router.push("/sales")} className="relative text-sm font-medium rounded-full h-12 p-1 ps-6 pe-14 group transition-all duration-500 hover:ps-14 hover:pe-6 w-fit overflow-hidden cursor-pointer">
+                        <span className="relative z-10 transition-all duration-500">
+                            Talk to sales
+                        </span>
+                        <span className="absolute right-1 w-10 h-10 bg-background text-foreground rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-44px)] group-hover:rotate-45">
+                            <ArrowUpRight size={16} />
+                        </span>
+                    </Button>
                 </div>
             </motion.div>
 

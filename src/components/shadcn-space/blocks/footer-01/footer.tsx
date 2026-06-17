@@ -60,23 +60,19 @@ const footerSections: FooterData[] = [
     links: [
       {
         title: "Contact us",
-        href: "#",
+        href: "#contact",
       },
       {
         title: "About us",
-        href: "#",
-      },
-      {
-        title: "Work",
-        href: "#",
+        href: "#about",
       },
       {
         title: "Services",
-        href: "#",
+        href: "#features",
       },
       {
         title: "Pricing",
-        href: "#",
+        href: "#pricing",
       },
     ],
   },
